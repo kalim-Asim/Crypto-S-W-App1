@@ -1,0 +1,4 @@
+/mnt/c/Users/asimk/OneDrive/Desktop/projects/cyber-security/build/CMakeFiles/CryptoQtApp.dir
+/mnt/c/Users/asimk/OneDrive/Desktop/projects/cyber-security/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/asimk/OneDrive/Desktop/projects/cyber-security/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/asimk/OneDrive/Desktop/projects/cyber-security/build/CMakeFiles/CryptoQtApp_autogen.dir

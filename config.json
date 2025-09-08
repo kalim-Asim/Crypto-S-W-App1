@@ -1,0 +1,6 @@
+{
+  "aes_key": "0123456789abcdef0123456789abcdef", 
+  "aes_iv": "abcdef9876543210abcdef9876543210",
+  "hmac_key": "mysecretkey"
+}
+
