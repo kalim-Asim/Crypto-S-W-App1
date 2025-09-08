@@ -15,7 +15,7 @@ Sudo apt-cache pkgnames | grep -i crypto++
 
 3. Setup
 ```
-cd projects/cyber-security/
+cd Crypto-S-W-App1/
 qmake
 make
 ./CryptoQtApp
