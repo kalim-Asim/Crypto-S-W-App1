@@ -30,9 +30,14 @@ CryptoQtApp/
 ├── data.hmac
 ├── README.md
 ├── src/
+    ├── crypto
+    |   ├── CryptoManager.cpp
+    |   └── CryptoManager.h
+    ├── crypto
+    |   ├── MainWindow.cpp
+    |   ├── MainWindow.h
+    |   └── mainwindow.ui
     ├── main.cpp
-    ├── mainwindow.h
-    ├── mainwindow.cpp
     └── resources.qrc
 
 ```
@@ -40,8 +45,10 @@ CryptoQtApp/
 ### 📂 Key Components
 
 *   **`src/main.cpp`**: The main entry point of the application.
-*   **`src/`**: Contains the Qt-based graphical user interface code.
+*   **`src/gui/`**: Contains the Qt-based graphical user interface code.
     *   `mainWindow.h`, `mainWindow.cpp`, and `mainwindow.ui` define the main window of the application.
+*   **`src/crypto/`**: Implements the core cryptographic functionalities.
+    *   `CryptoManager.h` and `CryptoManager.cpp` wrap the Crypto++ library to provide a simplified interface for AES, SHA-256, and HMAC operations.
 *   **`config.json`**: Configuration file for the application.
 *   **`CMakeLists.txt`**: The build script for the project.
 
