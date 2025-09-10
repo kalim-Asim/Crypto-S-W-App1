@@ -8,7 +8,7 @@ sudo apt-get install qt6-base-dev qt6-base-dev-tools qt6-tools-dev qt6-tools-dev
 
 2. Check if installed
 ```
-Sudo apt-cache pkgnames | grep -i crypto++
+sudo apt-cache pkgnames | grep -i crypto++
 ```
 
 3. Setup
