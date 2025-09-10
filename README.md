@@ -1,143 +1,113 @@
-🛡️ Crypto-App
+# 🛡️ Crypto-App1
 
-A desktop application built with Crypto++ for performing essential cryptographic operations through a simple GUI interface.
+Crypto-App1 is a desktop application built with **C++** and the **Qt framework** that provides a user-friendly interface for performing various cryptographic operations. It leverages the powerful **Crypto++** library to offer a range of functionalities, including AES encryption/decryption, SHA-256 hashing, and HMAC digest generation.
 
-The app allows users to securely encrypt/decrypt files, generate symmetric keys, compute SHA-256 digests, and HMAC values, all without dealing with command-line complexity.
+## ✨ Features
 
-✨ Features
+*   **🔑 Symmetric Key Generation:** Generate AES symmetric keys for secure encryption.
+*   **🔒 AES Encryption:** Encrypt files using AES symmetric encryption.
+*   **🔓 AES Decryption:** Decrypt AES-encrypted files back to their original content.
+*   **📝 SHA-256 Digest Generation:** Compute SHA-256 hash digests for files or text input.
+*   **🔐 HMAC Digest Generation:** Generate HMAC digests using SHA-256 for message authentication.
 
-🔑 Symmetric-Key Generation
-Automatically generates a secure AES key.
+## 🖥️ GUI
 
-🔒 AES Encryption
-Encrypt uploaded files using AES.
+The application provides a simple and intuitive graphical user interface with the following key components:
 
-🔓 AES Decryption
-Decrypt encrypted files back to their original form.
+*   **Operation Dropdown**: A combo box that allows you to select the desired cryptographic operation (e.g., AES Encrypt, AES Decrypt, Generate SHA-256 Digest, Generate HMAC).
+*   **📝 Input Text Field**: A text area where you can directly type or paste plaintext for hashing or HMAC generation.
+*   **📂 Upload Button**: Opens a file dialog to select an input file for operations that require file-based input (e.g., encryption or decryption).
+*   **▶️ Process Button**: Executes the currently selected cryptographic operation using the provided input (text or file).
+*   **💾 Download Button**: Becomes active after an operation that produces an output (like encryption, decryption, or digest). Clicking it opens a save file dialog to save the generated output to your local system.
+*   **📊 Status Log**: A text area that displays real-time progress, success messages, and any errors encountered during operations.
+*   **⏳ Progress Bar**: (Optional) A visual indicator that shows the progress of longer operations, though most cryptographic operations are very fast.
 
-📝 SHA-256 Digest Generation
-Generate SHA-256 hash of any file or text input.
+## Project layout
+```
+CryptoQtApp/
+├── CMakeLists.txt
+├── config.json
+├── data.hmac
+├── README.md
+├── src/
+    ├── main.cpp
+    ├── mainwindow.h
+    ├── mainwindow.cpp
+    └── resources.qrc
 
-🔐 HMAC Digest Generation
-Generate secure message authentication codes with SHA-256.
+```
 
-🖥️ GUI Overview
+### 📂 Key Components
 
-The desktop application provides a user-friendly interface:
+*   **`src/main.cpp`**: The main entry point of the application.
+*   **`src/`**: Contains the Qt-based graphical user interface code.
+    *   `mainWindow.h`, `mainWindow.cpp`, and `mainwindow.ui` define the main window of the application.
+*   **`config.json`**: Configuration file for the application.
+*   **`CMakeLists.txt`**: The build script for the project.
 
-📂 Upload Button → Select input file.
+## 🚀 Building the Project
 
-▶️ Process Button → Perform selected cryptographic operation.
+The project is built using **CMake**. You will need to have CMake and a C++ compiler installed on your system. You will also need to have the **Qt6 development libraries** installed.
 
-💾 Download Button → Save the processed output.
+1.  **🔧 Clone the repository:**
+    ```bash
+    git clone https://github.com/kalim-Asim/Crypto-app.git
+    ```
+    
+2.  **⚙️ Build (Ubuntu/Debian example)**
+ -  ***Install Qt + Crypto++**
+   ```bash
+   sudo apt update
+   sudo apt install -y build-essential cmake qtbase5-dev libqt5widgets5 libcrypto++-dev
+   ```
+-  ***▶️ Run Cmake and Build the project***
+  ```bash
+   mkdir build && cd build
+   cmake ..
+   cmake --build . --config Release
+   ./CryptoQtApp
+   ```
+- If using Qt6 adjust CMake find_package to Qt6 and install `qt6-base-dev`.
+  
+## ⚙️ Usage
 
-📊 Status Label/Text → Displays progress or errors.
+Once the project is built, you can run the executable from the build directory. The application will launch a graphical user interface that allows you to select a cryptographic operation, choose a file, and perform the operation.  
 
-⏳ Progress Bar (optional) → For large files.
+* For AES operations → Upload a file and select **Encrypt** or **Decrypt**.  
+* For SHA-256 digest → Provide text or upload a file.  
+* For HMAC digest → Provide text or file, and the app will generate the HMAC.  
 
-Example Workflow
+## 🛠️ Dependencies
+*   **C++17**
+*   **Qt6:** A cross-platform application development framework.
+*   **Crypto++:** A free C++ class library of cryptographic schemes.
+*   **CMake:** Build system generator.
 
-Upload a file.
+## 📖 Notes
+- `config.json` holds crypto parameters (key/IV sizes).
+- Encrypted files have IV (raw bytes) prepended.
+- The app reads files into memory (not streaming). For very large files, adapt to streaming.
 
-Select operation (Encrypt, Decrypt, Hash, etc.).
+### Example `config.json`
 
-Click Process.
+```json
+{
+  "aes_mode": "CBC",
+  "aes_key_bytes": 32,
+  "aes_iv_bytes": 16,
+  "hmac_key_bytes": 32,
+  "hash_algorithm": "SHA-256"
+}
+```
 
-View results directly in the app (for digests) or download processed file.
+## 📸 Screenshots
+- UI of Crypto App
+<img width="736" height="516" alt="Screenshot 2025-09-11 011559" src="https://github.com/user-attachments/assets/22571569-589f-4373-95f5-6afba3d0b996" />
 
-⚙️ Configuration
+- Different Algorithms
+<img width="740" height="201" alt="Screenshot 2025-09-11 011609" src="https://github.com/user-attachments/assets/ad56bdda-7cb9-4863-8cf0-e3583a8055b6" />
 
-All configurable parameters (e.g., AES key size, HMAC settings, etc.) are stored in a single file:
+- Upload file
+<img width="735" height="638" alt="Screenshot 2025-09-11 011628" src="https://github.com/user-attachments/assets/d1c976ce-a031-44da-90af-cfeed688309d" />
 
-/config/config.json
 
-
-The GUI does not expose advanced options — everything is handled via the configuration file to keep the interface simple.
-
-📂 Project Structure
-Crypto-app/
-│
-├── config/                 # Configuration files
-│   └── config.json
-│
-├── src/                    # Source code
-│   ├── gui/                # GUI-related code
-│   ├── crypto/             # Crypto++ wrappers
-│   └── main.cpp
-│
-├── assets/                 # Icons, UI assets
-├── build/                  # Build output
-├── README.md               # Project documentation
-└── LICENSE                 # License file
-
-🚀 Getting Started
-🔧 Prerequisites
-
-CMake (>= 3.10)
-
-Crypto++ library
-
-Qt5/Qt6 (for GUI)
-
-C++17 compatible compiler
-
-⚙️ Build Instructions
-# Clone the repository
-git clone https://github.com/kalim-Asim/Crypto-app.git
-cd Crypto-app
-
-# Create build directory
-mkdir build && cd build
-
-# Run CMake
-cmake ..
-
-# Build the project
-cmake --build .
-
-▶️ Run the Application
-./CryptoApp
-
-📸 Screenshots (Optional)
-
-Add screenshots here once GUI is finalized
-
-📖 Documentation
-
-Crypto++ Library Docs: https://cryptopp.com/docs/
-
-Qt Docs (GUI): https://doc.qt.io/
-
-🛠️ Tech Stack
-
-C++17
-
-Crypto++ (for cryptographic operations)
-
-Qt (for GUI framework)
-
-CMake (build system)
-
-🤝 Contributing
-
-Contributions are welcome!
-
-Fork the repository
-
-Create your feature branch (git checkout -b feature/new-feature)
-
-Commit your changes (git commit -m "Add new feature")
-
-Push to the branch (git push origin feature/new-feature)
-
-Create a Pull Request
-
-📜 License
-
-This project is licensed under the MIT License. See LICENSE
- for details.
-
-👨‍💻 Author
-
-Asim Kalim
-🔗 GitHub Profile
